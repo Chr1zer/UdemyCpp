@@ -23,7 +23,6 @@ int f3(int number)
 int main()
 {
     int num = 0;
-    std::cout << num << std::endl;
 
     f1(num);
     std::cout << num << std::endl;
@@ -31,8 +30,7 @@ int main()
     f2(num);
     std::cout << num << std::endl;
 
-    num = f3(num);
-    std::cout << num << std::endl;
+    std::cout << f3(num) << std::endl;
 
     return 0;
 }

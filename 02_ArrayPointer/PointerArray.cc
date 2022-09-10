@@ -2,25 +2,20 @@
 
 int main()
 {
-    unsigned int array_size = 10;
+    unsigned int arraySize = 10;
 
-    // Heap allocation
-    int *p = new int[array_size];
+    //Heap allocation
+    int* pArray = new int[arraySize];
 
-    for (unsigned int i = 0; i < array_size; ++i)
+    for(int i = 0; i < arraySize; i++)
     {
-        p[i] = i;
+        pArray[i] = i;
+        std::cout << "Array an Stelle: " << i << " = " << i << std::endl;
     }
 
-    // .....
-
-    for (unsigned int i = 0; i < array_size; ++i)
-    {
-        std::cout << p[i] << std::endl;
-    }
-
-    // Heap de-allocation
-    delete[] p;
+    //Heap de-allocation für Pointer-Array
+    //![]
+    delete[] pArray;
 
     return 0;
 }
