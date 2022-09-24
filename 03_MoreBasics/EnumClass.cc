@@ -4,6 +4,7 @@
 // 2.) No varaible can have a name which already reserved by an enum
 // 3.) Enums are not type safe
 
+//enum-Klassen können die Gleichen Namen enthalten, enums nicht
 enum class PermissionLevel
 {
     STUDENT = 1,

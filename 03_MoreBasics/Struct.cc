@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <cstdint>
 
 enum PermissionLevel
 {
@@ -11,9 +13,10 @@ enum PermissionLevel
 
 struct UserData
 {
-    const char *name;
-    unsigned int id;
-    PermissionLevel permission_level;
+    PermissionLevel level;
+    std::string user_name;
+    std::uint32_t user_id;
+
 };
 
 void greet_permission_level(const PermissionLevel level)
@@ -50,17 +53,25 @@ void greet_permission_level(const PermissionLevel level)
 
 int main()
 {
+    //ohne Zuordnung (kein struct)
+    std::uint32_t id_Jan = 10;
+    std::string name_Jan = "Jan";
+    PermissionLevel permission_Jan = PermissionLevel::INSTRUCTOR;
+
     PermissionLevel permission_level_jan = PermissionLevel::INSTRUCTOR;
     PermissionLevel permission_level_peter = PermissionLevel::STUDENT;
 
-    UserData user_jan = {"Jan", 108014222, permission_level_jan};
-    greet_permission_level(user_jan.permission_level);
+    //Instanz eines vorgefertigten structs wird mit Werten erstellt
+    UserData user_jan = {permission_level_jan, "Jan", 10801422 };
+    //Funktion zum überprüfen des permission_levels der Instanz
+    greet_permission_level(user_jan.level);
 
+    //2. Möglichkeit eine Instanz eines structs zu initialisieren
     UserData user_peter;
-    user_peter.name = "Peter";
-    user_peter.id = 1080153456;
-    user_peter.permission_level = permission_level_peter;
-    greet_permission_level(user_peter.permission_level);
+    user_peter.user_name = "Peter";
+    user_peter.user_id = 1080153456;
+    user_peter.level = permission_level_peter;
+    greet_permission_level(user_peter.level);
 
     return 0;
 }

@@ -1,39 +1,35 @@
 #include <iostream>
-
 #include "exercise.h"
 
 int main()
 {
-    // Exercise 1
-    const unsigned int array_length = 100;
-    double sum = 0.0;
+    const unsigned int length = 100;
+    double* pArray = new double[length] {};
 
-    double *p_array1 = nullptr;
-    p_array1 = new double[array_length];
-
-    for (unsigned int i = 0; i < 100; i++)
+    for(int i = 0; i < 100; i++)
     {
-        p_array1[i] = i;
+        pArray[i] = i;
     }
 
-    sum = array_sum(p_array1, array_length);
-    std::cout << "(Exercise 1) Array Sum = " << sum << std::endl;
+    double sum = array_sum(pArray, length);
 
-    // Exercise 2
-    unsigned int input_array_length = 0;
-    int input_array_value = 0;
+    std::cout << sum << std::endl;
 
-    std::cout << std::endl << "Enter the array length: " << std::endl;
-    std::cin >> input_array_length;
-    std::cout << std::endl << "Enter the array value: " << std::endl;
-    std::cin >> input_array_value;
+    //Array hat Länge von 3 und alle 3 Einträge haben den Wert 5
+    //int* pArray2 = array_constructor(5, 3);
+    //array{5,5,5,};
 
-    int *p_array2 = array_constructor(input_array_value, input_array_length);
+    unsigned int inputArrayLength;
+    int inputArrayValue;
 
-    for (unsigned int i = 0; i < input_array_length; i++)
-    {
-        std::cout << p_array2[i] << std::endl;
-    }
+    std::cout << "Enter the length of your Array: " << std::endl;
+    std::cin >> inputArrayLength;
+    std::cout << "Enter the value of your Array: " << std::endl;
+    std::cin >> inputArrayValue;
 
-    return 0;
+    int* newArray = array_constructor(inputArrayValue,inputArrayLength);
+
+    std::cout << *newArray << std::endl;
+
+
 }

@@ -1,11 +1,5 @@
 #include <iostream>
-//Möglichkeit damit main code kennt:
-using namespace AD;
-//namespaces fassen code (auch über mehrere Datein zusammen): wenn auf Funktion, struct, etc. aus namespace zugegriffen werden soll -
-//name:: voranstellen
 
-namespace AD
-{
 //enum = konstante Werte = CAPS LOCK
 enum class Lane
 {
@@ -84,9 +78,6 @@ void print_vehicle_data_pointer (const Vehicle* vehicle)
     }
 
 }
-};
-
-
 
 int main()
 {
@@ -94,11 +85,11 @@ int main()
     const Vehicle first_Vehicle = {.id=1, .velocity=80.9f, .lane=Lane::CENTER_LANE};
 
     //mit const kann kein Wert je verändert werden, in diesem Fall erwünscht, da Funktion nur Werte ausgibt
-    const auto second_Vehicle = AD::Vehicle{.id=2, .velocity=90.0f, .lane=AD::Lane::RIGHT_LANE};
+    const auto second_Vehicle = Vehicle{.id=2, .velocity=90.0f, .lane=Lane::RIGHT_LANE};
 
-    AD::print_vehicle_data_reference(first_Vehicle);
+    print_vehicle_data_reference(first_Vehicle);
 
-    AD::print_vehicle_data_pointer(&second_Vehicle);
+    print_vehicle_data_pointer(&second_Vehicle);
 
     return 0;
 }

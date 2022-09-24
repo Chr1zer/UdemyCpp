@@ -13,6 +13,7 @@ enum PermissionLevel
     UNKNOWN = 5
 };
 
+//Äquivalent zu Switch-Case
 void greet_permission_level_if(const PermissionLevel level)
 {
     if (level == PermissionLevel::STUDENT)
@@ -37,37 +38,41 @@ void greet_permission_level_if(const PermissionLevel level)
     }
 }
 
+
 void greet_permission_level_switch(const PermissionLevel level)
 {
-    switch (level)
+    switch(level)
     {
-    case PermissionLevel::STUDENT:
-    {
-        std::cout << "Hello STUDENT" << std::endl;
-        break;
+        case PermissionLevel::STUDENT:
+        {
+            std::cout << "STUDENT! \n";
+            break;
+        }
+        case PermissionLevel::ADMIN:
+        {
+            std::cout << "ADMIN! \n";
+            break;
+        }
+        case PermissionLevel::TUTOR:
+        {
+            std::cout << "TUTOR! \n";
+            break;
+        }
+        case PermissionLevel::INSTRUCTOR:
+        {
+            std::cout << "INSTRUCTOR! \n";
+            break;
+        }
+        default:
+        {
+            std::cout << "UNKOWN STATE! \n";
+            break;
+
+        }
     }
-    case PermissionLevel::TUTOR:
-    {
-        std::cout << "Hello TUTOR" << std::endl;
-        break;
-    }
-    case PermissionLevel::INSTRUCTOR:
-    {
-        std::cout << "Hello INSTRUCTOR" << std::endl;
-        break;
-    }
-    case PermissionLevel::ADMIN:
-    {
-        std::cout << "Hello ADMIN" << std::endl;
-        break;
-    }
-    default:
-    {
-        std::cout << "UNKNOWN! Error!" << std::endl;
-        break;
-    }
-    }
+
 }
+
 
 int main()
 {
@@ -76,6 +81,7 @@ int main()
 
     PermissionLevel permission_level_peter = PermissionLevel::STUDENT;
     greet_permission_level_if(permission_level_peter);
+
 
     return 0;
 }
